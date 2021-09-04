@@ -1,6 +1,6 @@
 <template>
   <div id="left-panel-card" class="neu-up">
-    <img :src="require('@/assets/images/' + image)" :alt="info" width="40px">
+    <img :src="require('@/assets/images/' + image)" :alt="info" width="70px">
     <div><span>{{info + suffix}}</span></div>
   </div>
 </template>
