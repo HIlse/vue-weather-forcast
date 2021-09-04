@@ -6,11 +6,7 @@
       <info-card :info="sunriseTime" image="tile000.png" suffix=""></info-card>
       <info-card :info="sunsetTime" image="tile003.png" suffix=""></info-card>
       <info-card :info="cloudiness" image="tile011.png" suffix=" %"></info-card>
-      <info-card
-        :info="windSpeed"
-        image="tile015.png"
-        suffix=" m/s"
-      ></info-card>
+      <info-card :info="windSpeed" image="tile015.png" suffix=" m/s"></info-card>
     </div>
   </div>
 </template>

@@ -18,7 +18,7 @@ export default {
 <style scoped>
     div{
         border-radius: 20px;
-        margin: 20px 20px auto;
+        margin: 5% auto 20px 5%;
         padding: 15px 20px;
         font-size: 2rem;
         font-weight: 700;
