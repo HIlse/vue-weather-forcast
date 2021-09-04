@@ -1,7 +1,8 @@
 <template>
     <div id='weather-info'>
-        <div v-if="currentWeather"><left-panel v-bind:weatherInfo="currentWeather"></left-panel></div>
-        <right-panel></right-panel>
+        <left-panel v-if="currentWeather" v-bind:weatherInfo="currentWeather"></left-panel>
+        <right-panel v-if="currentWeather" v-bind:weatherInfo="currentWeather"></right-panel>
+        <!-- <button @click="changeLocation">change</button> -->
         
     </div>
     
@@ -48,7 +49,8 @@ export default {
 <style scoped>
     #weather-info{
         margin: 50px 5%;
-
+        display: flex;
     }
+    
     
 </style>

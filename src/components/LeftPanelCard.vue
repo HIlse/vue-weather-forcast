@@ -22,7 +22,7 @@ img{
 }
 
 span{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-top: 35px;
     font-weight: 600;
     display: block;
