@@ -9,7 +9,7 @@ export default function timeConverter(UNIX_timestamp, fullDate){
     var hour = a.getHours();
     var min = a.getMinutes();
 
-    if (hour < 12) {
+    if (hour < 10) {
         hour = '0' + hour;
     }
     if (min < 10) {

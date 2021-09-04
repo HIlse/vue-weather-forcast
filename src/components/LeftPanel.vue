@@ -31,19 +31,31 @@ export default {
       sunriseTime: "",
       sunsetTime: "",
       windSpeed: "",
+      cloudiness:""
     };
   },
   created() {
-    this.cityName = this.weatherInfo.name;
-    this.sunriseTime = TimeConverter(
-      this.weatherInfo.sys.sunrise * 1000,
-      false
-    );
-    this.sunsetTime = TimeConverter(this.weatherInfo.sys.sunset * 1000, false);
-    this.windSpeed = this.weatherInfo.wind.speed;
-    this.cloudiness = this.weatherInfo.clouds.all;
+    this.updateInfo();
   },
-};
+  watch: {
+    weatherInfo: function(){
+      this.updateInfo();
+    }
+  },
+  methods: {
+    updateInfo: function(){
+      this.cityName = this.weatherInfo.name;
+      this.date = TimeConverter(Date.now(), true),
+      this.sunriseTime = TimeConverter(this.weatherInfo.sys.sunrise * 1000,false);
+      this.sunsetTime = TimeConverter(this.weatherInfo.sys.sunset * 1000, false);
+      this.windSpeed = this.weatherInfo.wind.speed;
+      this.cloudiness = this.weatherInfo.clouds.all;      
+    }
+      
+  }
+
+}
+
 </script>
 
 <style scoped>

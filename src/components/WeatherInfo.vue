@@ -20,7 +20,6 @@ export default {
     data(){
         return{
             currentWeather: null
-
         }
     },
     created(){
@@ -32,6 +31,15 @@ export default {
     },
     computed:{
         
+    },
+    methods:{
+        changeLocation: function(){
+            axios.get('https://api.openweathermap.org/data/2.5/weather?q=hanoi,vn&units=metric&APPID=b5ad7de37c0132a11c568f7488a50a1c')
+                .then(response => {
+                    this.currentWeather = response.data; 
+                })
+                .catch(error => this.answer = 'Error! Could not reach the API. ' + error);
+        }
     }
     
 }
