@@ -1,24 +1,9 @@
 # vue-weather-forecast
 
-## Project setup
+## Description
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+Under development
+A Neumorphism Weather forecast web-app built with Vue
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
