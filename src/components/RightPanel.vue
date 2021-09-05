@@ -93,18 +93,20 @@ export default {
     height: 150px;
     border-radius: 50%;
     padding-top: 15px;
+    margin: auto;
 }
 #img-outer-container{
     width:154px;
     height: 154px;
     border-radius: 50%;
     padding-top: 2px;
-    margin: 0 auto;
+    margin: auto;
 }
 h2{
     margin-top: 10px;
 }
 p{
+    margin-left: 25px;
     font-size: 1.5em;
 }
     
