@@ -1,10 +1,18 @@
 <template>
-    <div id='weather-info'>
-        <left-panel v-if="currentWeather" v-bind:weatherInfo="currentWeather"></left-panel>
-        <right-panel v-if="currentWeather" v-bind:weatherInfo="currentWeather"></right-panel>
+    <b-container fluid="md" id='weather-info'>
+        <b-row >
+            <b-col sm="6">
+                <left-panel v-if="currentWeather" v-bind:weatherInfo="currentWeather"></left-panel>
+            </b-col>
+            <b-col sm="6" align-self="center">
+                <right-panel v-if="currentWeather" v-bind:weatherInfo="currentWeather"></right-panel>
+            </b-col>
+            
+        </b-row>
+        
         <!-- <button @click="changeLocation">change</button> -->
         
-    </div>
+    </b-container>
     
 </template>
 
@@ -48,8 +56,9 @@ export default {
 
 <style scoped>
     #weather-info{
-        margin: 50px 5%;
-        display: flex;
+        margin: 50px auto;
+        padding: 0;
+        text-align: center;
     }
     
     

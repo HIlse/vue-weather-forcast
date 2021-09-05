@@ -12,23 +12,27 @@ export default {
 </script>
 
 <style scoped>
+#left-panel-card{
+  margin-left: auto;
+  margin-right: auto;
+}
 div.neu-up{
+    max-width: 150px;
     border-radius: 10px;
-    margin-right: 30px;
+    margin-top: 30px;
     padding: 5px;
 }
 img{
-    padding-right: 45px;
+  margin-right: auto;
 }
 
 span{
-    font-size: 1.5rem;
+    font-size: 1.5em;
     margin-top: 35px;
     font-weight: 600;
     display: block;
 }
-#left-panel-card div{
-    
+#left-panel-card div{   
     text-align: right;
 }
 </style>

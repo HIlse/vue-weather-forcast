@@ -1,7 +1,9 @@
 <template>
-    <div   class="neu-up">
-       {{title}}
-    </div>
+    <b-container fluid="md" id="title-header">
+       <b-row class="justify-content-md-center">
+           <b-col ><div id="title" class="neu-up">{{title}}</div></b-col>
+        </b-row>
+    </b-container >
 </template>
 
 <script>
@@ -16,12 +18,14 @@ export default {
 </script>
 
 <style scoped>
-    div{
+    #title-header{
+        
+        margin: 5% auto 20px auto;
+    }
+    #title{
         border-radius: 20px;
-        margin: 5% auto 20px 5%;
-        padding: 15px 20px;
-        font-size: 2rem;
+        font-size: 2em;
         font-weight: 700;
-        display: inline-block;
+        padding-left: 15px;
     }
 </style>

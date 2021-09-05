@@ -2,12 +2,15 @@
   <div id="left-panel">
     <h1>{{ cityName }}</h1>
     <p>{{ date }}</p>
-    <div id="info-card-container">
-      <info-card :info="sunriseTime" image="tile000.png" suffix=""></info-card>
-      <info-card :info="sunsetTime" image="tile003.png" suffix=""></info-card>
-      <info-card :info="cloudiness" image="tile011.png" suffix=" %"></info-card>
-      <info-card :info="windSpeed" image="tile015.png" suffix=" m/s"></info-card>
-    </div>
+    <b-container id="info-card-container">
+      <b-row class="justify-content-sm-center">
+        <b-col xl="3" cols="6" ><info-card :info="sunriseTime" image="tile000.png" suffix=""></info-card></b-col>
+        <b-col xl="3" cols="6" ><info-card :info="sunsetTime" image="tile003.png" suffix=""></info-card></b-col>
+        <b-col xl="3" cols="6" ><info-card :info="cloudiness" image="tile011.png" suffix=" %"></info-card></b-col>
+        <b-col xl="3" cols="6" ><info-card :info="windSpeed" image="tile015.png" suffix=" m/s"></info-card></b-col>
+      </b-row>
+      
+    </b-container>
   </div>
 </template>
 
@@ -56,24 +59,19 @@ export default {
 
 <style scoped>
 h1 {
-  margin: 0;
-  font-size: 3rem;
+  margin-left: 15px;
+  font-size: 3em;
 }
 p {
-  margin: 0;
-  font-size: 1.5rem;
+  margin-left: 15px;
+  font-size: 1.5em;
 }
 #left-panel {
   text-align: left;
   margin-top: 2%;
-  margin-right: 2%;
   border-radius: 10px;
-  padding: 10px;
-  display: inline-block;
 }
 #info-card-container {
-  margin: 10% 0 5% 0;
-  display: flex;
-  align-items: center;
+  margin: 10% auto 5% auto;
 }
 </style>

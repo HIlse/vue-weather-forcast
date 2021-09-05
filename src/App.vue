@@ -19,11 +19,7 @@ export default {
 </script>
 
 <style>
-body{
-    margin: 0px;
-    background: #ece6da;
-    font-family: 'Mulish', sans-serif;
-}
+
 .neu-up{
     box-shadow:  5px 5px 10px #9e9a92,
     -5px -5px 10px #ffffff;
