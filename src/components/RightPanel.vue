@@ -105,7 +105,6 @@ h2{
     margin-top: 10px;
 }
 p{
-    margin-left: 25px;
     font-size: 1.5em;
 }
     
