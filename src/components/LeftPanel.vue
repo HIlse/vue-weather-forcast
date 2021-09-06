@@ -74,4 +74,10 @@ p {
 #info-card-container {
   margin: 10% auto 5% auto;
 }
+
+@media screen and (max-width: 575px){
+  #left-panel {
+  text-align: center;
+}
+}
 </style>

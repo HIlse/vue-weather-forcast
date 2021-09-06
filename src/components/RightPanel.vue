@@ -70,9 +70,9 @@ export default {
 
 }
 
-#detail{
+/* #detail{
     
-}
+} */
 /* #detail div{
     display: flex;
 } */
