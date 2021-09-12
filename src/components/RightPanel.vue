@@ -4,9 +4,9 @@
             <b-col lg="6" id="detail" order="2" order-lg="1">
                 <div>
                     <img src="@/assets/images/tile022.png" alt="temp" width="100px">
-                    <span>{{temp}} °C</span>
+                    <span>{{temp}}°C</span>
                 </div>
-                <p>Feels like: <strong>{{feelsLike}} °C</strong></p>
+                <p>Feels like: <strong>{{feelsLike}}°C</strong></p>
                 <p>Humidity: <strong>{{humidity}}%</strong></p>
             </b-col>
         <!-- <div style="width: 5px;border-radius:20px" class="neu-up"></div> -->

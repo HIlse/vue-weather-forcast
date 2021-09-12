@@ -1,24 +1,27 @@
 <template>
-    <b-container fluid="md" id='weather-info'>
-        <b-row >
-            <b-col sm="6">
-                <left-panel v-if="currentWeather" v-bind:weatherInfo="currentWeather"></left-panel>
-            </b-col>
-            <b-col sm="6" align-self="center">
-                <right-panel v-if="currentWeather" v-bind:weatherInfo="currentWeather"></right-panel>
-            </b-col>
-            
-        </b-row>
+    <div id='weather-info'>
+        <b-container fluid="md" >
+            <b-row >
+                <b-col sm="6">
+                    <left-panel v-if="currentWeather" v-bind:weatherInfo="currentWeather"></left-panel>
+                </b-col>
+                <b-col sm="6" align-self="center">
+                    <right-panel v-if="currentWeather" v-bind:weatherInfo="currentWeather"></right-panel>
+                </b-col>
         
-        <!-- <button @click="changeLocation">change</button> -->
+            </b-row>
         
-    </b-container>
+            <button @click="changeLocation">change</button>
+        
+        </b-container>
+    </div>
     
 </template>
 
 <script>
 import LeftPanel from '../components/LeftPanel.vue'
 import RightPanel from '../components/RightPanel.vue'
+import {bus} from '../main.js';
 import axios from 'axios'
 
 export default {
@@ -29,12 +32,14 @@ export default {
     data(){
         return{
             currentWeather: null
+
         }
     },
     created(){
         axios.get('https://api.openweathermap.org/data/2.5/weather?q=saigon,vn&units=metric&APPID=b5ad7de37c0132a11c568f7488a50a1c')
                 .then(response => {
-                    this.currentWeather = response.data; 
+                    this.currentWeather = response.data;
+                    bus.$emit('locationChanged', this.currentWeather.coord); 
                 })
                 .catch(error => this.answer = 'Error! Could not reach the API. ' + error);
     },
@@ -46,6 +51,7 @@ export default {
             axios.get('https://api.openweathermap.org/data/2.5/weather?q=hanoi,vn&units=metric&APPID=b5ad7de37c0132a11c568f7488a50a1c')
                 .then(response => {
                     this.currentWeather = response.data; 
+                    bus.$emit('locationChanged', this.currentWeather.coord); 
                 })
                 .catch(error => this.answer = 'Error! Could not reach the API. ' + error);
         }
@@ -56,8 +62,6 @@ export default {
 
 <style scoped>
     #weather-info{
-        margin: 50px auto;
-        padding: 0;
         text-align: center;
     }
     

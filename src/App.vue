@@ -2,18 +2,22 @@
   <div id="app">
       <app-header></app-header>
       <weather-info></weather-info>
+      <forecast-info></forecast-info>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
 import WeatherInfo from './components/WeatherInfo.vue'
+import ForecastInfo from './components/ForecastInfo.vue'
+
 
 export default {
   name: 'App',
   components: {
     'app-header': Header,
-    'weather-info': WeatherInfo
+    'weather-info': WeatherInfo,
+    'forecast-info': ForecastInfo
   }
 }
 </script>

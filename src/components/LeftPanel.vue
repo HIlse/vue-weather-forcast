@@ -44,9 +44,9 @@ export default {
   methods: {
     updateInfo: function(){
       this.cityName = this.weatherInfo.name;
-      this.date = TimeConverter(Date.now(), true),
-      this.sunriseTime = TimeConverter(this.weatherInfo.sys.sunrise * 1000,false);
-      this.sunsetTime = TimeConverter(this.weatherInfo.sys.sunset * 1000, false);
+      this.date = TimeConverter(Date.now(), 'fullDate'),
+      this.sunriseTime = TimeConverter(this.weatherInfo.sys.sunrise * 1000, 'timeOnly');
+      this.sunsetTime = TimeConverter(this.weatherInfo.sys.sunset * 1000, 'timeOnly');
       this.windSpeed = this.weatherInfo.wind.speed;
       this.cloudiness = this.weatherInfo.clouds.all;      
     }
