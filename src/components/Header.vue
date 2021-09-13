@@ -28,4 +28,10 @@ export default {
         font-weight: 700;
         padding-left: 15px;
     }
+
+    @media screen and (max-width: 575px){
+        #title {
+        text-align: center;
+        }
+    }
 </style>
