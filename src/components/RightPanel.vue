@@ -1,7 +1,7 @@
 <template>
     <b-container id="right-panel">
         <b-row>
-            <b-col lg="6" id="detail" order="2" order-lg="1">
+            <b-col cols="6" id="detail" order="2" order-sm="1">
                 <div>
                     <img src="@/assets/images/tile022.png" alt="temp" width="100px">
                     <span>{{temp}}°C</span>
@@ -10,7 +10,7 @@
                 <p>Humidity: <strong>{{humidity}}%</strong></p>
             </b-col>
         <!-- <div style="width: 5px;border-radius:20px" class="neu-up"></div> -->
-            <b-col lg="6" id="weather-profile" order="1" order-lg="2">
+            <b-col cols="6" id="weather-profile" order="1" order-sm="2">
                 <div id="img-outer-container" class="neu-up">
                     <div id="img-inner-container" class="neu-down" >
                         <img :src="require('@/assets/images/'+ icon + '.png')" alt="weather" width="120px">
@@ -106,8 +106,43 @@ h2{
     margin-top: 10px;
 }
 p{
-    margin-left: 25px;
+    /* margin-left: 25px; */
     font-size: 1.5em;
+}
+
+@media screen and (max-width: 991px){
+  h2 {
+    font-size: 1.3em;
+  }
+  h3{
+    font-size: 1em;
+  }
+  p {
+    font-size: 0.9em;
+  }
+  #detail span{
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 4;
+}
+  #detail img{
+    width: 60px;
+}
+
+#img-inner-container{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+#img-outer-container{
+    width:104px;
+    height: 104px;
+    padding-top: 2px;
+    margin: auto;
+}
+#img-inner-container img{
+    width: 70px;
+}
 }
     
 </style>

@@ -47,7 +47,7 @@ export default {
 
 <style scoped>
 #forecast-info{
-        margin: 50px 5%; 
+        margin: 10px 5%; 
         padding: 0;
     }
     

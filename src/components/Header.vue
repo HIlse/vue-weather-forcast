@@ -25,12 +25,14 @@ export default {
     #title{
         border-radius: 20px;
         font-size: 2em;
-        font-weight: 700;
+        font-weight: 600;
         padding-left: 15px;
     }
 
     @media screen and (max-width: 575px){
         #title {
+
+        padding-left: 0;
         text-align: center;
         }
     }

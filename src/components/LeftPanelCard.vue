@@ -35,4 +35,26 @@ span{
 #left-panel-card div{   
     text-align: right;
 }
+
+@media screen and (max-width: 1199px){
+  img {
+    width: 45px;
+  }
+  span{
+    font-size: 1em;
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 575px){
+  img {
+    width: 35px;
+  }
+  span{
+    font-size: 0.7em;
+    margin-top: 20px;
+  }
+  div.neu-up{
+    margin-top: 0px;
+}
+}
 </style>

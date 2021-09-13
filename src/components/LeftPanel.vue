@@ -4,10 +4,10 @@
     <p>{{ date }}</p>
     <b-container id="info-card-container">
       <b-row class="justify-content-sm-center">
-        <b-col xl="3" cols="6" ><info-card :info="sunriseTime" image="tile000.png" suffix=""></info-card></b-col>
-        <b-col xl="3" cols="6" ><info-card :info="sunsetTime" image="tile003.png" suffix=""></info-card></b-col>
-        <b-col xl="3" cols="6" ><info-card :info="cloudiness" image="tile011.png" suffix=" %"></info-card></b-col>
-        <b-col xl="3" cols="6" ><info-card :info="windSpeed" image="tile015.png" suffix=" m/s"></info-card></b-col>
+        <b-col cols='3' sm='6' lg='3' class="info-card"><info-card :info="sunriseTime" image="tile000.png" suffix=""></info-card></b-col>
+        <b-col cols='3' sm='6' lg='3' class="info-card"><info-card :info="sunsetTime" image="tile003.png" suffix=""></info-card></b-col>
+        <b-col cols='3' sm='6' lg='3' class="info-card"><info-card :info="cloudiness" image="tile011.png" suffix=" %"></info-card></b-col>
+        <b-col cols='3' sm='6' lg='3' class="info-card"><info-card :info="windSpeed" image="tile015.png" suffix=" m/s"></info-card></b-col>
       </b-row>
       
     </b-container>
@@ -61,6 +61,7 @@ export default {
 h1 {
   margin-left: 15px;
   font-size: 3em;
+  font-weight: 700;
 }
 p {
   margin-left: 15px;
@@ -72,12 +73,38 @@ p {
   border-radius: 10px;
 }
 #info-card-container {
+  text-align: left;
   margin: 10% auto 5% auto;
+}
+
+@media screen and (max-width: 991px){
+  h1 {
+    font-size: 2em;
+  }
+  p {
+    font-size: 1em;
+  }
+  #info-card-container {
+  text-align: left;
+  margin: 5% auto 5% auto;
+  }
 }
 
 @media screen and (max-width: 575px){
   #left-panel {
   text-align: center;
+  }
+  .info-card{
+    padding:7px;
+  }
+  
+}
+@media screen and (max-width: 991px){
+p{
+    margin-bottom: 2%;
+}
+#info-card-container{
+  margin-top:0;
 }
 }
 </style>
