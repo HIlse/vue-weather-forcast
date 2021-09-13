@@ -48,12 +48,12 @@ export default {
     methods:{
         updateData: function(){
             this.fourItems.length = 0;
-            if (this.hourlyInfo.hourly.length >= 4) {
+            if (this.hourlyInfo.hourly.length > 4) {
                 this.collapsible = true;
                 for (let i = 0; i < 4; i++) {
                     this.fourItems[i] = this.hourlyInfo.hourly[i];             
                 }
-            } else{
+            } else {
                 this.collapsible = false;
                 for (let i = 0; i < this.hourlyInfo.hourly.length; i++) {
                     this.fourItems[i] = this.hourlyInfo.hourly[i];             
