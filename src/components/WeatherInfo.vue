@@ -8,11 +8,8 @@
                 <b-col sm="6" align-self="center">
                     <right-panel v-if="currentWeather" v-bind:weatherInfo="currentWeather"></right-panel>
                 </b-col>
-        
             </b-row>
-        
             <button @click="changeLocation">change</button>
-        
         </b-container>
     </div>
     
@@ -36,7 +33,7 @@ export default {
         }
     },
     created(){
-        axios.get('https://api.openweathermap.org/data/2.5/weather?q=saigon,vn&units=metric&APPID=b5ad7de37c0132a11c568f7488a50a1c')
+        axios.get('https://api.openweathermap.org/data/2.5/weather?q=saigon,vn&units=metric&APPID=' + process.env.VUE_APP_API_KEY)
                 .then(response => {
                     this.currentWeather = response.data;
                     bus.$emit('locationChanged', this.currentWeather.coord); 
@@ -48,7 +45,7 @@ export default {
     },
     methods:{
         changeLocation: function(){
-            axios.get('https://api.openweathermap.org/data/2.5/weather?q=hanoi,vn&units=metric&APPID=b5ad7de37c0132a11c568f7488a50a1c')
+            axios.get('https://api.openweathermap.org/data/2.5/weather?q=hanoi,vn&units=metric&APPID=' + process.env.VUE_APP_API_KEY)
                 .then(response => {
                     this.currentWeather = response.data; 
                     bus.$emit('locationChanged', this.currentWeather.coord); 

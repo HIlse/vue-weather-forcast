@@ -38,31 +38,24 @@ export default {
         }
     },
     created(){
-        console.log('hello');
         this.updateData();
-        console.log(this.fourItems);
-        
     },
     watch:{
         hourlyInfo: function(){
-            console.log('hola');
             this.updateData();
         }
     },
     methods:{
         updateData: function(){
-            console.log('do I event here?' + this.hourlyInfo.hourly.length);
             this.fourItems.length = 0;
             if (this.hourlyInfo.hourly.length >= 4) {
                 this.collapsible = true;
                 for (let i = 0; i < 4; i++) {
-                    console.log('here');
                     this.fourItems[i] = this.hourlyInfo.hourly[i];             
                 }
             } else{
                 this.collapsible = false;
                 for (let i = 0; i < this.hourlyInfo.hourly.length; i++) {
-                    console.log('or here');
                     this.fourItems[i] = this.hourlyInfo.hourly[i];             
                 }
             }
@@ -72,28 +65,25 @@ export default {
         },
         checkShow: function(){
             this.isCollapsed = false;
-        
         }
     }
     
 }
 </script>
 <style scoped>
-/* #card-container{
-    text-align: center;
-} */
 p{
     font-size: 0.7em;
     font-weight: 600;
 }
 #collapse-container{
-
     text-align: center;
 }
 .collapsed > .when-open,
 .not-collapsed > .when-closed {
   display: none;
 }
-:focus {outline:0 !important;}
+:focus {
+    outline:0 !important;
+}
 
 </style>

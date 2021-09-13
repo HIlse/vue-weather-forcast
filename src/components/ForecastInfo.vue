@@ -2,7 +2,6 @@
     <div id='forecast-info'>
         <hourly-panel :hourlyData="hourlyData" :dailyData="dailyData"></hourly-panel>
     </div>
-    
 </template>
 
 <script>
@@ -34,12 +33,10 @@ export default {
     },
     methods:{
         changeLocation: function(lat,lon){
-            axios.get('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=minutely&units=metric&APPID=b5ad7de37c0132a11c568f7488a50a1c')
+            axios.get('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=minutely&units=metric&APPID=' + process.env.VUE_APP_API_KEY)
                 .then(response => {
                     this.hourlyData = response.data.hourly;
                     this.dailyData = response.data.daily;
-                    console.log(this.hourlyData);
-                    console.log(this.dailyData);
                 })
                 .catch(error => this.answer = 'Error! Could not reach the API. ' + error);
         }
