@@ -9,7 +9,7 @@
                     <right-panel v-if="currentWeather" v-bind:weatherInfo="currentWeather"></right-panel>
                 </b-col>
             </b-row>
-            <button @click="changeLocation">change</button>
+            <!-- <button @click="changeLocation">change</button> -->
         </b-container>
     </div>
     
