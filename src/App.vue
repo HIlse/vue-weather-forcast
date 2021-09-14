@@ -3,6 +3,7 @@
       <app-header></app-header>
       <weather-info></weather-info>
       <forecast-info></forecast-info>
+      <app-footer></app-footer>
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import Header from './components/Header.vue'
 import WeatherInfo from './components/WeatherInfo.vue'
 import ForecastInfo from './components/ForecastInfo.vue'
+import Footer from './components/Footer.vue'
 
 
 export default {
@@ -17,7 +19,8 @@ export default {
   components: {
     'app-header': Header,
     'weather-info': WeatherInfo,
-    'forecast-info': ForecastInfo
+    'forecast-info': ForecastInfo,
+    'app-footer': Footer
   }
 }
 </script>
