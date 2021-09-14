@@ -6,8 +6,8 @@
       <b-row class="justify-content-sm-center">
         <b-col cols='3' sm='6' lg='3' class="info-card"><info-card :info="sunriseTime" image="tile000.png" suffix=""></info-card></b-col>
         <b-col cols='3' sm='6' lg='3' class="info-card"><info-card :info="sunsetTime" image="tile003.png" suffix=""></info-card></b-col>
-        <b-col cols='3' sm='6' lg='3' class="info-card"><info-card :info="cloudiness" image="tile011.png" suffix=" %"></info-card></b-col>
-        <b-col cols='3' sm='6' lg='3' class="info-card"><info-card :info="windSpeed" image="tile015.png" suffix=" m/s"></info-card></b-col>
+        <b-col cols='3' sm='6' lg='3' class="info-card"><info-card :info="cloudiness" image="tile011.png" suffix="%"></info-card></b-col>
+        <b-col cols='3' sm='6' lg='3' class="info-card"><info-card :info="windSpeed" image="tile015.png" suffix="m/s"></info-card></b-col>
       </b-row>
       
     </b-container>
@@ -47,7 +47,7 @@ export default {
       this.date = TimeConverter(Date.now(), 'fullDate'),
       this.sunriseTime = TimeConverter(this.weatherInfo.sys.sunrise * 1000, 'timeOnly');
       this.sunsetTime = TimeConverter(this.weatherInfo.sys.sunset * 1000, 'timeOnly');
-      this.windSpeed = this.weatherInfo.wind.speed;
+      this.windSpeed = this.weatherInfo.wind.speed.toFixed(1);
       this.cloudiness = this.weatherInfo.clouds.all;      
     }
       

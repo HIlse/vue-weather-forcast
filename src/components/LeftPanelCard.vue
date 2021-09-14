@@ -50,7 +50,7 @@ span{
     width: 35px;
   }
   span{
-    font-size: 0.7em;
+    font-size: 0.8em;
     margin-top: 20px;
   }
   div.neu-up{
