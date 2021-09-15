@@ -95,6 +95,7 @@ export default {
         }
         h5{
             font-size: 1em;
+            margin-top: 3%;
         }
     }
 
