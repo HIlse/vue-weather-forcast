@@ -1,7 +1,7 @@
 <template>
     <b-container id='collapse-container'>
         <b-row cols-lg='6' cols-md="4" cols-sm="3" cols="4" v-if="isCollapsed" class="mr-auto">
-                <b-col v-for="e in fourItems" :key="e.dt" >
+                <b-col v-for="e in tweleItems" :key="e.dt" >
                     <div id="card-container">
                         <img :src="require('@/assets/images/' + e.weather.icon + '.svg')" :alt="e.dt" width="35px">
                         <p>{{e.time}}</p>
@@ -32,7 +32,7 @@ export default {
 
     data(){
         return{
-            fourItems:[],
+            tweleItems:[],
             collapsible: false,
             isCollapsed:true
         }
@@ -47,16 +47,16 @@ export default {
     },
     methods:{
         updateData: function(){
-            this.fourItems.length = 0;
-            if (this.hourlyInfo.hourly.length > 4) {
+            this.tweleItems.length = 0;
+            if (this.hourlyInfo.hourly.length > 12) {
                 this.collapsible = true;
-                for (let i = 0; i < 4; i++) {
-                    this.fourItems[i] = this.hourlyInfo.hourly[i];             
+                for (let i = 0; i < 12; i++) {
+                    this.tweleItems[i] = this.hourlyInfo.hourly[i];             
                 }
             } else {
                 this.collapsible = false;
                 for (let i = 0; i < this.hourlyInfo.hourly.length; i++) {
-                    this.fourItems[i] = this.hourlyInfo.hourly[i];             
+                    this.tweleItems[i] = this.hourlyInfo.hourly[i];             
                 }
             }
         },
