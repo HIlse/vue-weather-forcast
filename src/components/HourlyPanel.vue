@@ -4,7 +4,7 @@
             <b-col sm='6' class='p-3' >
                 <div id='hourly-container'  class="neu-down">
                     <div id='container-title'>
-                        <h3>{{dates[0]}}</h3>
+                        <h3>Today</h3>
                         <p>Temperature: {{day1Data.minTemp}}°C - {{day1Data.maxTemp}}°C</p>
                     </div>
                     <hr>
@@ -14,7 +14,7 @@
             <b-col sm='6' class='p-3'>
                 <div id='hourly-container' class="neu-down">
                     <div id='container-title'>
-                        <h3>{{dates[1]}}</h3>
+                        <h3>Tomorrow</h3>
                         <p>Temperature: {{day2Data.minTemp}}°C - {{day2Data.maxTemp}}°C</p>
                     </div>
                     <hr>
@@ -57,14 +57,14 @@ export default {
     },
     methods: {
         updateData: function(){
-                this.day1Data = {minTemp: 0, maxTemp: 0, hourly:[]};
-                this.day2Data = {minTemp: 0, maxTemp: 0, hourly:[]};
-                this.day1Data.minTemp = Math.round(this.dailyData[0].temp.min);
-                this.day1Data.maxTemp = Math.round(this.dailyData[0].temp.max);
-                this.day2Data.minTemp = Math.round(this.dailyData[1].temp.min);
-                this.day2Data.maxTemp = Math.round(this.dailyData[1].temp.max);
-                this.dates.length = 0;
-                this.hourlyData.forEach((e) => {
+            this.day1Data = {minTemp: 0, maxTemp: 0, hourly:[]};
+            this.day2Data = {minTemp: 0, maxTemp: 0, hourly:[]};
+            this.day1Data.minTemp = Math.round(this.dailyData[0].temp.min);
+            this.day1Data.maxTemp = Math.round(this.dailyData[0].temp.max);
+            this.day2Data.minTemp = Math.round(this.dailyData[1].temp.min);
+            this.day2Data.maxTemp = Math.round(this.dailyData[1].temp.max);
+            this.dates.length = 0;
+            this.hourlyData.forEach((e) => {
                 let date = TimeConverter(e.dt*1000, 'dateOnly');
                 if (this.dates.length == 0) {
                     this.dates[0] = date;
@@ -78,11 +78,8 @@ export default {
                     this.day2Data.hourly.push({time: TimeConverter(e.dt*1000,'timeOnly'), weather: e.weather[0]})
                 }
             });
-            
-            
-        },
+        }   
     }
-    
 }
 </script>
 

@@ -2,9 +2,11 @@ export default function timeConverter(UNIX_timestamp, mode){
     var a = new Date(UNIX_timestamp);
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var daysShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     var year = a.getFullYear();
     var month = months[a.getMonth()];
     var day = days[a.getDay()];
+    var dayShort = daysShort[a.getDay()];
     var date = a.getDate();
     var hour = a.getHours();
     var min = a.getMinutes();
@@ -28,14 +30,16 @@ export default function timeConverter(UNIX_timestamp, mode){
     }
 
     if (mode == 'fullDate') {
-        var fullTime = day + ', ' + date + ' ' + month + ' ' + year + ' '  + hour + ':' + min;
+        var fullTime = day + ', ' + month + ' ' + date + dateSuffix + ' ' + year + ' ' + hour + ':' + min;
         return fullTime;
-    } else  if (mode == 'timeOnly'){
+    } else if (mode == 'timeOnly') {
         var timeOnly = hour + ':' + min;
         return timeOnly;
     } else if (mode == 'dateOnly') {
         var dateOnly = month + ' ' + date + dateSuffix;
         return dateOnly;
+    } else if (mode == 'shortDay') {
+        return dayShort;
     }
     
   }

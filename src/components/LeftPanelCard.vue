@@ -55,6 +55,7 @@ span{
   }
   div.neu-up{
     margin-top: 0px;
+    max-width: 75px;
 }
 }
 </style>

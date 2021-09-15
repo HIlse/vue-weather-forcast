@@ -1,6 +1,7 @@
 <template>
     <div id='forecast-info'>
         <hourly-panel :hourlyData="hourlyData" :dailyData="dailyData"></hourly-panel>
+        <daily-panel :dailyData="dailyData"></daily-panel>
     </div>
 </template>
 
@@ -8,11 +9,13 @@
 import {bus} from '../main.js'
 import axios from 'axios'
 import HourlyPanel from './HourlyPanel.vue'
+import DailyPanel from './DailyPanel.vue'
 
 export default {
     
     components:{
-        'hourly-panel': HourlyPanel
+        'hourly-panel': HourlyPanel,
+        'daily-panel': DailyPanel
     },
     data(){
         return{
