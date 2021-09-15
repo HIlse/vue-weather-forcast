@@ -28,12 +28,12 @@ export default {
 <style>
 
 .neu-up{
-    box-shadow:  5px 5px 10px #9e9a92,
+    box-shadow:  5px 5px 10px #d1d1d1,
     -5px -5px 10px #ffffff;
 }
 
 .neu-down{
-    box-shadow: inset 5px 5px 8px #9e9a92,
+    box-shadow: inset 5px 5px 8px #d1d1d1,
             inset -5px -5px 8px #ffffff;
 }
 </style>

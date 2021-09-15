@@ -3,7 +3,7 @@
         <b-row>
             <b-col cols="6" id="detail" order="2" order-sm="1">
                 <div>
-                    <img src="@/assets/images/tile022.png" alt="temp" width="100px">
+                    <img src="@/assets/images/tile022.svg" alt="temp" width="110px">
                     <span>{{temp}}°C</span>
                 </div>
                 <p>Feels like: <strong>{{feelsLike}}°C</strong></p>
@@ -13,7 +13,7 @@
             <b-col cols="6" id="weather-profile" order="1" order-sm="2">
                 <div id="img-outer-container" class="neu-up">
                     <div id="img-inner-container" class="neu-down" >
-                        <img :src="require('@/assets/images/'+ icon + '.png')" alt="weather" width="120px">
+                        <img :src="require('@/assets/images/'+ icon + '.svg')" alt="weather" width="120px">
                     </div>
 
                 </div>
@@ -81,7 +81,7 @@ export default {
 }
 
 #detail span{
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: bold;
     line-height: 4;
 }
@@ -121,7 +121,7 @@ p{
     font-size: 0.9em;
   }
   #detail span{
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: bold;
     line-height: 4;
 }

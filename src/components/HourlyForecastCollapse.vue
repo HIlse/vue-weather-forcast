@@ -3,7 +3,7 @@
         <b-row cols-lg='6' cols-md="4" cols-sm="3" cols="4" v-if="isCollapsed" class="mr-auto">
                 <b-col v-for="e in fourItems" :key="e.dt" >
                     <div id="card-container">
-                        <img :src="require('@/assets/images/' + e.weather.icon + '.png')" :alt="e.dt" width="35px">
+                        <img :src="require('@/assets/images/' + e.weather.icon + '.svg')" :alt="e.dt" width="35px">
                         <p>{{e.time}}</p>
                     </div>               
                 </b-col>
@@ -13,7 +13,7 @@
             <b-row cols-lg='6' cols-md="4" cols-sm="3" cols="4" class="mr-auto">
                 <b-col v-for="e in hourlyInfo.hourly" :key="e.dt" >
                     <div id="card-container">
-                        <img :src="require('@/assets/images/' + e.weather.icon + '.png')" :alt="e.dt" width="35px">
+                        <img :src="require('@/assets/images/' + e.weather.icon + '.svg')" :alt="e.dt" width="35px">
                         <p>{{e.time}}</p>
                     </div>               
                 </b-col>

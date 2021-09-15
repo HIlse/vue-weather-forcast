@@ -81,11 +81,11 @@ export default {
     }
     .neu-down{
         
-    box-shadow: inset 2px 2px 5px #9e9a92,
+    box-shadow: inset 2px 2px 5px #d1d1d1,
             inset -2px -2px 5px #ffffff;
     }
     .neu-up{
-    box-shadow:  4px 4px 5px #9e9a92,
+    box-shadow:  4px 4px 5px #d1d1d1,
                 -4px -4px 5px #ffffff;
 }
 
