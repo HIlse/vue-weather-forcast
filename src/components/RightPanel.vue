@@ -3,7 +3,7 @@
         <b-row>
             <b-col cols="6" id="detail" order="2" order-sm="1">
                 <div>
-                    <img src="@/assets/images/tile022.svg" alt="temp" width="110px">
+                    <img class='animated-img' src="@/assets/images/tile022.svg" alt="temp" width="110px">
                     <span>{{temp}}°C</span>
                 </div>
                 <p>Feels like: <strong>{{feelsLike}}°C</strong></p>
@@ -13,7 +13,7 @@
             <b-col cols="6" id="weather-profile" order="1" order-sm="2">
                 <div id="img-outer-container" class="neu-up">
                     <div id="img-inner-container" class="neu-down" >
-                        <img :src="require('@/assets/images/'+ icon + '.svg')" alt="weather" width="120px">
+                        <img class='animated-img' :src="require('@/assets/images/'+ icon + '.svg')" alt="weather" width="120px">
                     </div>
 
                 </div>

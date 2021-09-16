@@ -36,4 +36,8 @@ export default {
     box-shadow: inset 5px 5px 8px #d1d1d1,
             inset -5px -5px 8px #ffffff;
 }
+
+.animated-img{
+  transform: translateZ(0);
+}
 </style>
