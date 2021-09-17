@@ -19,15 +19,13 @@ export default {
     },
     data(){
         return{
-            currentWeather: null,
             hourlyData: [],
             dailyData: []
         }
     },
     created(){
         bus.$on('locationChanged', (data) =>{
-            this.currentWeather = data;
-            this.changeLocation(this.currentWeather.lat, this.currentWeather.lon)
+            this.changeLocation(data.lat, data.lon)
         })
        
     },

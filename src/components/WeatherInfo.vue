@@ -9,7 +9,7 @@
                     <right-panel v-if="currentWeather" v-bind:weatherInfo="currentWeather"></right-panel>
                 </b-col>
             </b-row>
-            <!-- <button @click="changeLocation">change</button> -->
+            <!-- <button @click="changeLocation()">change</button> -->
         </b-container>
     </div>
     
@@ -28,29 +28,41 @@ export default {
     },
     data(){
         return{
-            currentWeather: null
-
+            currentWeather: null,
+            coord: {lat:0, lon: 0}
         }
     },
     created(){
-        axios.get('https://api.openweathermap.org/data/2.5/weather?q=saigon,vn&units=metric&APPID=' + process.env.VUE_APP_API_KEY)
-                .then(response => {
-                    this.currentWeather = response.data;
-                    bus.$emit('locationChanged', this.currentWeather.coord); 
-                })
-                .catch(error => this.answer = 'Error! Could not reach the API. ' + error);
-    },
-    computed:{
+        axios.get('https://api.ipdata.co/?api-key=' + process.env.VUE_APP_GEOIP_API_KEY)
+            .then(response => {
+                this.coord.lat = response.data.latitude;
+                this.coord.lon = response.data.longitude;
+                bus.$emit('locationChanged', this.coord);
+                this.updateLocation();
+            })
+            .catch(error => this.answer = 'Error! Could not reach the API. ' + error);
+        bus.$on('locationChanged', (data) =>{
+            this.coord = data ;
+            console.log('holla');
+        })    
         
     },
+    watch:{
+       coord: function(){
+           console.log('me is here');
+           this.updateLocation();
+       } 
+    },
     methods:{
-        changeLocation: function(){
-            axios.get('https://api.openweathermap.org/data/2.5/weather?q=hanoi,vn&units=metric&APPID=' + process.env.VUE_APP_API_KEY)
+        updateLocation: function(){
+            axios.get('https://api.openweathermap.org/data/2.5/weather?lat=' + this.coord.lat + '&lon=' + this.coord.lon + '&units=metric&APPID=' + process.env.VUE_APP_API_KEY)
                 .then(response => {
                     this.currentWeather = response.data; 
-                    bus.$emit('locationChanged', this.currentWeather.coord); 
                 })
                 .catch(error => this.answer = 'Error! Could not reach the API. ' + error);
+        },
+        changeLocation: function(){
+            this.coord = {lat: 21.028511, lon: 105.804817};
         }
     }
     
