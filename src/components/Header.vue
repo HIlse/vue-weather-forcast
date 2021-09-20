@@ -1,8 +1,8 @@
 <template>
     <b-container fluid="md" id="title-header">
        <b-row class="justify-content-md-center neu-up" >
-           <b-col md="9" ><div id="title" >{{title}}</div></b-col>
-           <b-col md="3" align-self='center' ><city-search></city-search></b-col>
+           <b-col ><div id="title" >{{title}}</div></b-col>
+           <b-col sm='4' align-self='center' ><city-search></city-search></b-col>
         </b-row>
     </b-container >
 </template>
@@ -39,9 +39,15 @@ export default {
 
     @media screen and (max-width: 575px){
         #title {
-
         padding-left: 0;
         text-align: center;
+        }
+        
+    }
+    @media screen and (max-width: 767px){
+        .neu-up{
+            margin-left: 0;
+            margin-right: 0;
         }
     }
 </style>

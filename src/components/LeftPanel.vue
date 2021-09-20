@@ -97,6 +97,12 @@ p {
   .info-card{
     padding:7px;
   }
+  h1 {
+  margin-left: 0;
+  }
+  p {
+    margin-left: 0;
+  } 
   
 }
 @media screen and (max-width: 991px){

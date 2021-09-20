@@ -2,7 +2,13 @@
     <div id="search-box-container">
         <input v-model='inputText' class="neu-down" id='search-box' type="text" name="search" placeholder="Search your city...">
         <b-list-group class="result-list-container" v-if="isShowList">
-            <b-list-group-item button v-on:click="chooseCity(city)" class="result-list" v-for="city in tempCityList.slice(0,5)" :key='city.id'>{{city.name}}, {{city.country}}</b-list-group-item>
+            <b-list-group-item 
+                button v-on:click="chooseCity(city)" 
+                class="result-list" 
+                v-for="city in tempCityList.slice(0,5)" 
+                :key='city.id'>
+                    {{city.name}}{{city.state != '' ? ', ' + city.state : ''}}, {{city.country}}
+            </b-list-group-item>
         </b-list-group>
     </div>
 </template>
@@ -24,7 +30,7 @@ export default {
             if (newText.length >= 3) {
                 if (this.tempCityList.length == 0) {
                     cityList.forEach(e => {
-                        if (e.name.toLowerCase().replace(/\s+/g, '').includes(newText)) {
+                        if (e.name.toLowerCase().replace(/\s+/g, '').includes(newText.toLowerCase().replace(/\s+/g, ''))) {
                             this.tempCityList.push(e);
                         }
                     });
@@ -33,7 +39,7 @@ export default {
                     if (newText.length > oldText.length) {
                         let optimizedList = [];
                         this.tempCityList.forEach(e => {
-                            if (e.name.toLowerCase().replace(/\s+/g, '').includes(newText)) {
+                            if (e.name.toLowerCase().replace(/\s+/g, '').includes(newText.toLowerCase().replace(/\s+/g, ''))) {
                                 optimizedList.push(e);
                             }
                         });
@@ -47,7 +53,7 @@ export default {
                         } else {
                             this.tempCityList.length = 0;
                             cityList.forEach(e => {
-                                if (e.name.toLowerCase().replace(/\s+/g, '').includes(newText)) {
+                                if (e.name.toLowerCase().replace(/\s+/g, '').includes(newText.toLowerCase().replace(/\s+/g, ''))) {
                                     this.tempCityList.push(e);
                                 }
                             });
@@ -65,6 +71,9 @@ export default {
     methods:{
         chooseCity: function(event){
             bus.$emit('locationChanged', event.coord);
+            this.tempCityList.length = 0;
+            this.isShowList = false;
+            this.inputText = '';
         }
     }
 }
@@ -73,7 +82,8 @@ export default {
 <style scoped>
 #search-box-container{
     text-align: right;
-    
+    width: 200px;
+    margin-left: auto;
 }
 
 .neu-down{
@@ -99,5 +109,28 @@ export default {
 :focus {
     outline:0 !important;
 }
+
+@media screen and (max-width: 767px){
+    #search-box-container{
+    width: 150px;
+}
+    .neu-down{
+        width: 150px;
+    }
+}
+@media screen and (max-width: 575px){
+    #search-box-container{
+    width: 200px;
+    margin-right: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 15px;
+}
+    .neu-down{
+        width: 200px;
+    }
+}
+
 
 </style>

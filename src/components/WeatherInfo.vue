@@ -73,6 +73,11 @@ export default {
     #weather-info{
         text-align: center;
     }
-    
+    @media screen and (max-width: 575px){
+        #weather-info{
+            margin-top: 50px;
+        }
+        
+    }
     
 </style>

@@ -11,11 +11,11 @@
                 <b-col>
                     <h5>Connect with us!</h5>
                     <div>
-                        <a href="https://www.ninkat.com/" target="_blank" rel="noopener noreferrer">
+                        <!-- <a href="https://www.ninkat.com/" target="_blank" rel="noopener noreferrer">
                             <div class="neu-up outer-container">
                                 <img src="@/assets/logos/icon-filled-color.png" alt="ninkathome" width="25px">
                             </div>
-                        </a>
+                        </a> -->
                         <a href="https://www.facebook.com/ninkatstudio" target="_blank" rel="noopener noreferrer">
                             <div class="neu-up outer-container">
                                 <img src="@/assets/logos/facebook.png" alt="fb" width="20px">
