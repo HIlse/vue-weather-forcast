@@ -84,11 +84,14 @@ export default {
     text-align: right;
     width: 200px;
     margin-left: auto;
+    margin-right: 10px;
 }
 
 .neu-down{
     box-shadow: inset 2px 2px 6px #d1d1d1,
             inset -2px -2px 6px #ffffff;
+    width: 200px;
+    -webkit-appearance: none;
 }
 
 #search-box{

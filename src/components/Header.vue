@@ -2,7 +2,7 @@
     <b-container fluid="md" id="title-header">
        <b-row class="justify-content-md-center neu-up" >
            <b-col ><div id="title" >{{title}}</div></b-col>
-           <b-col sm='4' align-self='center' ><city-search></city-search></b-col>
+           <b-col sm='4' align-self='center' style="padding-right: 0;"><city-search></city-search></b-col>
         </b-row>
     </b-container >
 </template>

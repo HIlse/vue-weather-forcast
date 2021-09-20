@@ -3,7 +3,7 @@
     <h1>{{ cityName }}</h1>
     <p>{{ date }}</p>
     <b-container id="info-card-container">
-      <b-row class="justify-content-sm-center">
+      <b-row >
         <b-col cols='3' sm='6' lg='3' class="info-card"><info-card :info="sunriseTime" image="tile000.svg" suffix=""></info-card></b-col>
         <b-col cols='3' sm='6' lg='3' class="info-card"><info-card :info="sunsetTime" image="tile003.svg" suffix=""></info-card></b-col>
         <b-col cols='3' sm='6' lg='3' class="info-card"><info-card :info="cloudiness" image="tile011.svg" suffix="%"></info-card></b-col>
