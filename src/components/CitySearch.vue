@@ -70,7 +70,7 @@ export default {
     },
     methods:{
         chooseCity: function(event){
-            bus.$emit('locationChanged', event.coord);
+            bus.$emit('locationChanged', {lat: event.coord.lat, lon: event.coord.lon, isFromGeo: false});
             this.tempCityList.length = 0;
             this.isShowList = false;
             this.inputText = '';

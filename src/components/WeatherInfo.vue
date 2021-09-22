@@ -21,6 +21,8 @@ import RightPanel from '../components/RightPanel.vue'
 import {bus} from '../main.js';
 import axios from 'axios'
 
+
+
 export default {
     components:{
         'left-panel': LeftPanel,
@@ -29,35 +31,51 @@ export default {
     data(){
         return{
             currentWeather: null,
-            coord: {lat:0, lon: 0}
+            coord: {lat:0, lon: 0, isFromGeo: false}
         }
     },
     created(){
-        axios.get('https://api.ipdata.co/?api-key=' + process.env.VUE_APP_GEOIP_API_KEY)
+        navigator.geolocation.getCurrentPosition((position) =>{
+            axios.get('https://revgeocode.search.hereapi.com/v1/revgeocode?at=' + position.coords.latitude + ',' + position.coords.longitude + '&lang=en-US&apiKey=' + process.env.VUE_APP_HERE_API_KEY)
+            .then(response =>{
+                let cityName = response.data.items[0].address.district + ', ' + response.data.items[0].address.city;
+                this.updateLocation(true, cityName);
+                bus.$emit('locationChanged', {lat: position.coords.latitude, lon: position.coords.longitude, isFromGeo: true});
+            })
+            .catch(error => this.answer = 'Error! Could not reach the API. ' + error);
+        }, (error) =>{
+            console.log(error);
+            axios.get('https://api.ipdata.co/?api-key=' + process.env.VUE_APP_GEOIP_API_KEY)
             .then(response => {
                 this.coord.lat = response.data.latitude;
                 this.coord.lon = response.data.longitude;
-                bus.$emit('locationChanged', this.coord);
+                
                 this.updateLocation();
             })
             .catch(error => this.answer = 'Error! Could not reach the API. ' + error);
+        })
+        
         bus.$on('locationChanged', (data) =>{
             this.coord = data ;
-            console.log('holla');
         })    
         
     },
     watch:{
        coord: function(){
-           console.log('me is here');
-           this.updateLocation();
+           if (!this.coord.isFromGeo) {
+               this.updateLocation();
+           }
+           
        } 
     },
     methods:{
-        updateLocation: function(){
+        updateLocation: function(isByGeo = false, cityName){
             axios.get('https://api.openweathermap.org/data/2.5/weather?lat=' + this.coord.lat + '&lon=' + this.coord.lon + '&units=metric&APPID=' + process.env.VUE_APP_API_KEY)
                 .then(response => {
-                    this.currentWeather = response.data; 
+                    this.currentWeather = response.data;
+                    if (isByGeo) {
+                        this.currentWeather.name = cityName;
+                    }
                 })
                 .catch(error => this.answer = 'Error! Could not reach the API. ' + error);
         },
