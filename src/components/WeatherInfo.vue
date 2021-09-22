@@ -3,7 +3,7 @@
         <b-container fluid="md" >
             <div v-if="!gotLocation">
                 <img class="animated-img" src="@/assets/images/compass.svg" alt="compass" width=100xpx>
-                <h2>Getting your localtion...</h2>
+                <h2>Getting your location...</h2>
             </div>
             <b-row >
                 <b-col sm="6">
