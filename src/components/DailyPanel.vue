@@ -4,7 +4,7 @@
             <b-col lg="" v-for="info in dailyInfo" :key="info.day" >
                 <div class="neu-up info-container">
                     <div class='img-container neu-down'>
-                        <img class='animated-img' :src="require('@/assets/images/'+ info.weather.icon + '.svg')" width='70px'>
+                        <img :src="require('@/assets/images/'+ info.weather.icon + '.svg')" width='70px'>
                     </div>
                     <h5>{{info.day}}</h5>
                     <h6>{{info.date}}</h6>
