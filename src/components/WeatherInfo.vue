@@ -45,6 +45,8 @@ export default {
             .then(response =>{
                 this.gotLocation = true;
                 let cityName = response.data.items[0].address.district + ', ' + response.data.items[0].address.city;
+                this.coord.lat = position.coords.latitude;
+                this.coord.lon = position.coords.longitude;
                 this.updateLocation(true, cityName);
                 bus.$emit('locationChanged', {lat: position.coords.latitude, lon: position.coords.longitude, isFromGeo: true});
             })
