@@ -56,8 +56,9 @@ export default {
                 this.gotLocation = true;
                 this.coord.lat = response.data.latitude;
                 this.coord.lon = response.data.longitude;
-                
+                this.coord.isFromGeo = false
                 this.updateLocation();
+                bus.$emit('locationChanged', this.coord);
             })
             .catch(error => this.answer = 'Error! Could not reach the API. ' + error);
         })
